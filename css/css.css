@@ -1,6 +1,6 @@
 #screen{
     padding: 25px;
     background-color: rgba(41, 144, 234, 0.69);
-    box-shadow: 5px 5px 5px #30a0db;
-    
+    box-shadow: 5px 5px 5px rgb(71, 74, 75);
+    border: 3px double black;
 }
