@@ -4,11 +4,39 @@
         <title>Jeremy's Page</title>
         
         <link rel="stylesheet" href="css/css.css" type="text/css">
+        
+        <script>
+            Array.prototype.randomize = function(){
+                return this[Math.floor(Math.random()*this.length - 1)];
+            }
+            
+            function getRandom()
+            {
+                var items = [];
+                var form = document.getElementById("form").getElementsByClassName("item").elements;
+                
+                for(i of form)
+                {
+                    items[i] = form[i].value;
+                }
+                
+                document.getElementById("test").innerHTML += items.randomize();
+                
+                return false;
+            }
+        </script>
     </head>
     
     <body>
         <div id="screen">
+            <form id="form" method="get" onSubmit="return getRandom()">
+                <input type="text" name="text1" class="item" value="1"> <br>
+                <input type="text" name="text2" class="item" value="2"> <br>
+                <input type="submit" value="Enter">
+            </form>
             
+            
+            <p id="test"></p>
         </div>
     </body>
 </html>
