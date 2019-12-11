@@ -31,7 +31,6 @@ function addItem(toForm)
     var newItem = document.createElement("input");
     newItem.setAttribute("type", "text");
     newItem.setAttribute("class", "item");
-    newItem.setAttribute("maxlength", "15");
 
     document.getElementById(toForm).appendChild(newItem);
     document.getElementById(toForm).appendChild(br);
@@ -59,7 +58,6 @@ function addList()
     var input = document.createElement("input");
     input.setAttribute("type", "text");
     input.setAttribute("class", "item");
-    input.setAttribute("maxlength", "15");
     var br = document.createElement("br");
 
     document.getElementById("form" + sets).appendChild(input);
