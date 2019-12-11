@@ -1,6 +1,25 @@
-#screen{
+.set{
     padding: 25px;
     background-color: rgba(41, 144, 234, 0.69);
     box-shadow: 5px 5px 5px rgb(71, 74, 75);
     border: 3px double black;
+    height: 100%;
+    max-width: 100px;
+}
+
+#topDog{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    background-color: #8abae5;
+    padding: 10px;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }

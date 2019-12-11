@@ -5,7 +5,9 @@
         
         <link rel="stylesheet" href="css/css.css" type="text/css">
         
-        <script>
+        <script type="text/javascript">
+            var forms = 0;
+            
             Array.prototype.randomize = function(){
                 return this[Math.floor(Math.random()*this.length)];
             }
@@ -20,24 +22,46 @@
                     items[i] = form[i].value;
                 }
                 
-                document.getElementById("test").innerHTML = items.randomize();
+                document.getElementById("chosenItem").innerHTML = "The choice is: " + items.randomize();
                 
                 return false;
+            }
+            
+            function addItem(toForm)
+            {
+                var form = document.getElementById(toForm);
+                
+                var br = document.createElement("br");
+                
+                var addButton = form.removeChild(form.getElementsByClassName("buttons")[0]);
+                var getButton = form.removeChild(form.getElementsByClassName("buttons")[0]);
+                
+                var newItem = document.createElement("input");
+                newItem.setAttribute("type", "text");
+                newItem.setAttribute("class", "item");
+                
+                document.getElementById(toForm).appendChild(newItem);
+                document.getElementById(toForm).appendChild(br);
+                
+                document.getElementById(toForm).appendChild(addButton);
+                document.getElementById(toForm).appendChild(getButton);
             }
         </script>
     </head>
     
     <body>
-        <div id="screen">
-            <form id="form" >
-                <input type="text" name="text1" class="item" value="1"> <br>
-                <input type="text" name="text2" class="item" value="2"> <br>
-                <input type="text" name="text3" class="item" value="3"> <br>
-                <input type="button" onClick="getRandom()" value="Enter">
-            </form>
-            
-            
-            <p id="test"></p>
+        
+        <div id="topDog">
+            <div class="set">
+                <form id="form" class="forms">
+                    <input type="text" name="text1" class="item" value="1" maxlength="15"> <br>
+                    
+                    <input type="button" onClick="addItem('form')" value="Add an item" class="buttons">
+                    <input type="button" onClick="getRandom()" value="Get a random item" class="buttons">
+                </form>
+
+                <p id="chosenItem" ></p>
+            </div> 
         </div>
     </body>
 </html>
