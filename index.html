@@ -7,20 +7,20 @@
         
         <script>
             Array.prototype.randomize = function(){
-                return this[Math.floor(Math.random()*this.length - 1)];
+                return this[Math.floor(Math.random()*this.length)];
             }
             
             function getRandom()
             {
                 var items = [];
-                var form = document.getElementById("form").getElementsByClassName("item").elements;
+                var form = document.getElementById("form").getElementsByClassName("item");
                 
-                for(i of form)
+                for(i = 0; i < form.length; i++)
                 {
                     items[i] = form[i].value;
                 }
                 
-                document.getElementById("test").innerHTML += items.randomize();
+                document.getElementById("test").innerHTML = items.randomize();
                 
                 return false;
             }
@@ -29,10 +29,11 @@
     
     <body>
         <div id="screen">
-            <form id="form" method="get" onSubmit="return getRandom()">
+            <form id="form" >
                 <input type="text" name="text1" class="item" value="1"> <br>
                 <input type="text" name="text2" class="item" value="2"> <br>
-                <input type="submit" value="Enter">
+                <input type="text" name="text3" class="item" value="3"> <br>
+                <input type="button" onClick="getRandom()" value="Enter">
             </form>
             
             
