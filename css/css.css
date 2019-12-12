@@ -1,10 +1,11 @@
 .set{
     padding: 25px;
+    margin: 5px;
     background-color: rgba(41, 144, 234, 0.69);
     box-shadow: 5px 5px 5px rgb(71, 74, 75);
     border: 3px double black;
     height: 100%;
-    max-height: 300px;
+    max-height: 200px;
     overflow: auto;
 }
 
@@ -14,7 +15,6 @@
     width: 100%;
     padding: 10px;
     justify-content: center;
-    align-content: space-between;
 }
 
 .forms{
@@ -27,5 +27,19 @@
 body{
     text-align: center;
     background-color: #8abae5;
-    
+}
+
+.buttons{
+    margin: 5px;
+    position: sticky;
+    bottom: 1px;
+}
+
+.theChosen{
+    position: sticky;
+    top: 1px;
+    background-color: rgba(41, 144, 234, 1);
+    height: 25px;
+    border: 1px solid black;
+    padding: 3px;
 }

@@ -15,8 +15,7 @@ function getRandom(set)
     }
 
     document.getElementById("chosenItem" + set).innerHTML = "The choice is: " + items.randomize();
-
-    return false;
+    
 }
             
 function addItem(toForm)
@@ -25,8 +24,7 @@ function addItem(toForm)
 
     var br = document.createElement("br");
 
-    var addButton = form.removeChild(form.getElementsByClassName("buttons")[0]);
-    var getButton = form.removeChild(form.getElementsByClassName("buttons")[0]);
+    var addButton = form.removeChild(form.getElementsByClassName("buttons")[1]);
 
     var newItem = document.createElement("input");
     newItem.setAttribute("type", "text");
@@ -36,7 +34,6 @@ function addItem(toForm)
     document.getElementById(toForm).appendChild(br);
 
     document.getElementById(toForm).appendChild(addButton);
-    document.getElementById(toForm).appendChild(getButton);
 
     newItem.focus();
 }
@@ -48,12 +45,27 @@ function addList()
     newDiv.setAttribute("id", "set" + sets);
 
     document.getElementById("topDog").appendChild(newDiv);
+    
+    var newP = document.createElement("p");
+    newP.setAttribute("id", "chosenItem" + sets);
+    newP.setAttribute("class", "theChosen");
+    newP.innerHTML = "Press the button to get an item!";
+
+    document.getElementById("set" + sets).appendChild(newP);
 
     var newForm = document.createElement("form");
     newForm.setAttribute("id", "form" + sets);
     newForm.setAttribute("class", "forms");
 
     document.getElementById("set" + sets).appendChild(newForm);
+    
+    var getButton = document.createElement("input");
+    getButton.setAttribute("type", "button");
+    getButton.setAttribute("onClick", "getRandom('" + sets + "')");
+    getButton.setAttribute("value", "Get a random item");
+    getButton.setAttribute("class", "buttons");
+
+     document.getElementById("form" + sets).appendChild(getButton);
 
     var input = document.createElement("input");
     input.setAttribute("type", "text");
@@ -71,18 +83,7 @@ function addList()
 
     document.getElementById("form" + sets).appendChild(addButton);
 
-     var getButton = document.createElement("input");
-    getButton.setAttribute("type", "button");
-    getButton.setAttribute("onClick", "getRandom('" + sets + "')");
-    getButton.setAttribute("value", "Get a random item");
-    getButton.setAttribute("class", "buttons");
-
-     document.getElementById("form" + sets).appendChild(getButton);
-
-    var newP = document.createElement("p");
-    newP.setAttribute("id", "chosenItem" + sets);
-
-    document.getElementById("set" + sets).appendChild(newP);
+    
 
      input.focus();
 
